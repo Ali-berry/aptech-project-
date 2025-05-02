@@ -1,0 +1,26 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fce4ec;
+  }
+  .navbar {
+    background-color: #f06292;
+  }
+  .navbar a, .navbar-brand {
+    color: white !important;
+  }
+  .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+  }
+  .services, .about, .contact {
+    padding: 60px 0;
+  }
+  .footer {
+    background-color: #f06292;
+    color: white;
+    padding: 20px 0;
+  }
+  .footer a {
+    color: white;
+    margin: 0 10px;
+  }

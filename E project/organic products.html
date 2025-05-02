@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Organic Beauty Products</title>
+
+  <!-- Bootstrap and Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #fff0f5, #ffe4e1);
+    }
+
+    nav {
+      background-color: white;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo span {
+      color: #ec4899;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links, .nav-link-btn {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ec4899;
+    }
+
+    .book-btn {
+      background-color: #ec4899;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .book-btn:hover {
+      background-color: #db2777;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 48px;
+      color: #d63384;
+      margin: 40px 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background: white;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+      position: relative;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #d63384;
+      color: white;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 5px;
+      z-index: 2;
+    }
+
+    .img-container {
+      position: relative;
+      width: 100%;
+      padding-top: 120%;
+      overflow: hidden;
+    }
+
+    .img-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .img-container img.hover-img {
+      opacity: 0;
+    }
+
+    .product-card:hover .hover-img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .product-card:hover .main-img {
+      opacity: 0;
+    }
+
+    .product-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-name {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .product-price {
+      color: #d63384;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #d63384;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #c2186a;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .footer-icons i {
+      margin: 0 10px;
+      font-size: 22px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .footer-icons i:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="https://img.icons8.com/color/48/spa.png" alt="Logo">
+      <span>Her-Glow</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#" class="book-btn">Shop Now</a>
+    </div>
+  </nav>
+
+  <h1>Our Organic Beauty Care</h1>
+
+  <div class="product-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="badge">New</div>
+      <div class="img-container">
+        <img src="https://joinherbeauty.com/cdn/shop/products/HER65804x51.jpg?v=1745088980&width=713" class="main-img" alt="Hydrating Cream">
+        <img src="https://joinherbeauty.com/cdn/shop/files/soysmoothie_2ad4fbae-1ff4-4e22-ad53-39e56ae782c9.png?v=1745088980&width=713" class="hover-img" alt="Hydrating Cream Hover">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Hydrating Cream</div>
+        <div class="product-price">$25.00</div>
+        <button class="btn" onclick="showPopup()">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="badge">Best Seller</div>
+      <div class="img-container">
+        <img src="https://cdn.shopify.com/s/files/1/0619/8948/6798/files/balance-bestie-3_23cab968-4983-4181-86d7-46c09407c3b6.jpg?v=1741890346" class="main-img" alt="Glow Serum">
+        <img src="https://cdn.shopify.com/s/files/1/0619/8948/6798/files/balance-bestie-4_09f3e9d3-c921-4499-9fe0-4971459e87f9.jpg?v=1741890345" class="hover-img" alt="Glow Serum Hover">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Glow Serum</div>
+        <div class="product-price">$30.00</div>
+        <button class="btn" onclick="showPopup()">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="badge">Organic</div>
+      <div class="img-container">
+        <img src="https://cdn.shopify.com/s/files/1/0619/8948/6798/files/Retinol-1_22ede601-cdfd-4fc4-8c61-adc4dd705979.jpg?v=1741867353" class="main-img" alt="Face Mask">
+        <img src="https://cdn.shopify.com/s/files/1/0619/8948/6798/files/Retinol-2_2235305d-1cd5-42df-b83b-03905f1bb088.jpg?v=1741867352" class="hover-img" alt="Face Mask Hover">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Reviving Face Mask</div>
+        <div class="product-price">$22.00</div>
+        <button class="btn" onclick="showPopup()">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <div class="badge">Vegan</div>
+      <div class="img-container">
+        <img src="https://cdn.shopify.com/s/files/1/0619/8948/6798/files/1_bcdfdbf0-5fa3-44dc-911f-72747db30f9c.jpg?v=1736948130" class="main-img" alt="Body Lotion">
+        <img src="https://cdn.shopify.com/s/files/1/0619/8948/6798/files/2_4d498535-edf6-4aed-8bad-3391b3242b6b.jpg?v=1737631652" class="hover-img" alt="Body Lotion Hover">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Body Soft Lotion</div>
+        <div class="product-price">$18.00</div>
+        <button class="btn" onclick="showPopup()">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="popup" class="popup" style="display:none; position:fixed; top:20px; right:20px; background:#f8bbd0; color:#880e4f; padding:15px 20px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.2); font-weight:600; z-index:999;">Added to Cart!</div>
+
+  <footer>
+    <p>© 2025 Her-Glow. All rights reserved.</p>
+    <div class="footer-icons">
+      <i class="bi bi-instagram"></i>
+      <i class="bi bi-facebook"></i>
+      <i class="bi bi-twitter"></i>
+    </div>
+  </footer>
+
+  <script>
+    function showPopup() {
+      var popup = document.getElementById('popup');
+      popup.style.display = 'block';
+      setTimeout(function() {
+        popup.style.display = 'none';
+      }, 2000);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
